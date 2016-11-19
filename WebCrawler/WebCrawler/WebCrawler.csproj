@@ -77,7 +77,6 @@
     <Compile Include="Models\Config.cs" />
     <Compile Include="ViewModels\CrawlCommand.cs" />
     <Compile Include="ViewModels\CrawlResultConverter.cs" />
-    <Compile Include="Models\WebCrawler.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\WebCrawlerViewModel.cs" />
     <Compile Include="Views\WebCrawlerWindow.xaml.cs">

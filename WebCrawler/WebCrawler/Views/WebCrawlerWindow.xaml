@@ -4,14 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:WebCrawler.ViewModels"
-        xmlns:converters="clr-namespace:WebCrawler.Converters"
-        xmlns:local="clr-namespace:WebCrawler.Views"
+    xmlns:local="clr-namespace:WebCrawler.Views"
         x:Class="WebCrawler.Views.WebCrawlerWindow"
         mc:Ignorable="d"
         Title="WebCrawlerWindow"  Height="350" Width="525" ResizeMode="NoResize" ShowActivated="False">
     
     <Window.Resources>
-        <converters:CrawlResultConverter x:Key="CrawlResultConverter"/>
+        <viewModel:CrawlResultConverter x:Key="CrawlResultConverter"/>
     </Window.Resources>
     
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
@@ -19,6 +18,7 @@
             <viewModel:WebCrawlerViewModel/>
         </Grid.DataContext>
         <TreeView x:Name="treeView" Margin="10,10,10,45"  ItemsSource="{Binding CrawlResult, Converter={StaticResource CrawlResultConverter}}"/>
-        <Button x:Name="button" Content="Execute" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" Command="{Binding CrawlCommand, IsAsync=True, Mode=Default}"/>
+        <Button x:Name="button" Content="Execute" HorizontalAlignment="Center" Margin="0,0,150,10" VerticalAlignment="Bottom" Width="75" Command="{Binding CrawlCommand, IsAsync=True, Mode=Default}"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" Height="23" Margin="150,0,0,9" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="75" ToolTip="For fun!"/>
     </Grid>
 </Window>

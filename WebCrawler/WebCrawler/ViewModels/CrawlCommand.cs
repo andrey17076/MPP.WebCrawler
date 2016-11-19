@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WebCrawler.Models
+namespace WebCrawler.ViewModels
 {
     internal class CrawlCommand : ICommand
     {

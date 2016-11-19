@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
-using WebCrawlerLib.Models;
+using WebCrawlerLib;
 
-namespace WebCrawler.Converters
+namespace WebCrawler.ViewModels
 {
     internal class CrawlResultConverter : IValueConverter
     {
@@ -14,7 +14,7 @@ namespace WebCrawler.Converters
             var crawlResult = value as CrawlResult;
             if (value == null)
                 return new object();
-            return new List<TreeViewItem>() {GetTreeViewItem(crawlResult)};
+            return new List<TreeViewItem> {GetTreeViewItem(crawlResult)};
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -24,8 +24,8 @@ namespace WebCrawler.Converters
 
         private static TreeViewItem GetTreeViewItem(CrawlResult crawlResult)
         {
-            var threeViewItem = new TreeViewItem() {Header = crawlResult.Link};
-            crawlResult.NestedLinks.ForEach((link) => threeViewItem.Items.Add(GetTreeViewItem(link)));
+            var threeViewItem = new TreeViewItem {Header = crawlResult.Link};
+            crawlResult.NestedResults.ForEach(result => threeViewItem.Items.Add(GetTreeViewItem(result)));
             return threeViewItem;
         }
     }
