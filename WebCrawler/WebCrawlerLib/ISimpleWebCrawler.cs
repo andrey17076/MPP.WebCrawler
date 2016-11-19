@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
-using WebCrawlerLib.Models;
 
-namespace WebCrawlerLib.Contracts
+namespace WebCrawlerLib
 {
     public interface ISimpleWebCrawler
     {
