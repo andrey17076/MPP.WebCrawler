@@ -16,13 +16,20 @@ namespace WebCrawler.Models
 
         public static Config Load()
         {
-            XDocument document = XDocument.Load(ConfigPath);
-            XElement root = document.Root;
-            return new Config
+            try
             {
-                Depth = GetDepth(root),
-                Urls =  GetUrls(root)
-            };
+                XDocument document = XDocument.Load(ConfigPath);
+                XElement root = document.Root;
+                return new Config
+                {
+                    Depth = GetDepth(root),
+                    Urls = GetUrls(root)
+                };
+            }
+            catch
+            {
+                return new Config {Depth = 0, Urls = new string[1]};
+            }
         }
 
         private static int GetDepth(XContainer root)
