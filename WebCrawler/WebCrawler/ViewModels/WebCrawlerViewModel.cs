@@ -1,27 +1,16 @@
-﻿using WebCrawler.Models;
-using CrawlResult = WebCrawlerLib.Models.CrawlResult;
+﻿using System.Threading.Tasks;
+using WebCrawler.Models;
+using CrawlResult = WebCrawlerLib.CrawlResult;
 
 namespace WebCrawler.ViewModels
 {
     internal class WebCrawlerViewModel : BaseViewModel
     {
         private CrawlResult _crawlResult;
-        private readonly Models.WebCrawler _webCrawler;
 
         internal WebCrawlerViewModel()
         {
-            _webCrawler = new Models.WebCrawler(Config.Load().Depth);
-            CrawlCommand = new CrawlCommand(
-                async () =>
-                {
-                    if (CrawlCommand.CanExecute)
-                    {
-                        CrawlCommand.CanExecute = false;
-                        CrawlResult = await _webCrawler.GetCrawlResultAsync(Config.Load().Urls);
-                        CrawlCommand.CanExecute = true;
-                    }
-                }
-            );
+            CrawlCommand = new CrawlCommand(PerformCrawler);
         }
 
         public CrawlCommand CrawlCommand { get; }
@@ -38,6 +27,21 @@ namespace WebCrawler.ViewModels
                 _crawlResult = value;
                 OnPropertyChanged();
             }
+        }
+
+        private async Task PerformCrawler()
+        {
+            if (!CrawlCommand.CanExecute) return;
+            CrawlCommand.CanExecute = false;
+            CrawlResult = await GetCrawlResult();
+            CrawlCommand.CanExecute = true;
+        }
+
+        private static async Task<CrawlResult> GetCrawlResult()
+        {
+            var config = Config.Load();
+            var webCrawler = new WebCrawlerLib.WebCrawler(config.Depth);
+            return await webCrawler.PerformCrawlingAsync(config.Urls);
         }
     }
 }
