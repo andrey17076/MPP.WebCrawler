@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawler", "WebCrawler\WebCrawler.csproj", "{8335DBE8-0E23-4557-90FC-16D1CDB56293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCrawlerLib", "WebCrawlerLib\WebCrawlerLib.csproj", "{10FC917E-526C-4590-82ED-6E48F8E89857}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8335DBE8-0E23-4557-90FC-16D1CDB56293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8335DBE8-0E23-4557-90FC-16D1CDB56293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8335DBE8-0E23-4557-90FC-16D1CDB56293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8335DBE8-0E23-4557-90FC-16D1CDB56293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10FC917E-526C-4590-82ED-6E48F8E89857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FC917E-526C-4590-82ED-6E48F8E89857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FC917E-526C-4590-82ED-6E48F8E89857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FC917E-526C-4590-82ED-6E48F8E89857}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
